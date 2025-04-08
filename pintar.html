@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pintar Vocal</title>
+    <link rel="stylesheet" href="style.css">
+    <body class="pintar-page">
+
+</head>
+    <div class="pintar-container">
+        <span id="vocalMayuscula" class="vocal"></span>
+        <span id="vocalMinuscula" class="vocal"></span>
+    </div>
+
+    <!-- Barra de herramientas horizontal -->
+    <div class="toolbar">
+        <!-- Botón selector de color -->
+        <div class="color-dropdown">
+            <button id="colorSelector" class="color-button"></button>
+            <div class="color-options">
+                <!-- Los botones de color se generarán dinámicamente -->
+            </div>
+        </div>
+
+       <!-- Herramientas -->
+        <div class="tools">
+            <button id="erase" class="tool-btn">🩹</button>
+            <button id="brush" class="tool-btn">🖌️</button>
+            <!-- Contador de tamaño del pincel -->
+            <button id="decreaseBrush" class="tool-btn">➖</button>
+            <span id="brushSizeCounter">10</span> <!-- Contador de tamaño del pincel -->
+
+            <button id="increaseBrush" class="tool-btn">➕</button>
+        </div>
+
+        <!-- Botones de ocultar y reiniciar -->
+        <div class="controls">
+            <button id="resetCanvas" class="control-btn">🔄</button>
+            <button id="toggleToolbar" class="control-btn">🔼</button>
+        </div>
+    </div>
+
+    <div class="letra-container">
+        <span class="letra-seleccionada"></span>
+    </div>
+
+    <!-- Botón de volver -->
+    <button id="volver" class="back-btn">X</button>
+
+    <!-- Botón flotante para mostrar la barra -->
+    <button id="showToolbar" class="floating-button" style="display: none;">🔽</button>
+
+    <script src="app.js"></script>
+    <script>
+        
+        // Agregar colores dinámicamente
+        const colorOptions = [
+            'purple', 'pink', 'black', 'blue', 'darkblue', 'yellow', 'red', 'orange',
+            'green', 'cyan', 'magenta', 'lime', 'brown', 'gray', 'gold', 'navy', 'teal'
+        ];
+        
+        const colorContainer = document.querySelector('.color-options');
+        
+        colorOptions.forEach(color => {
+            const button = document.createElement('button');
+            button.classList.add('color-option');
+            button.style.backgroundColor = color;
+            button.dataset.color = color;
+            colorContainer.appendChild(button);
+        });
+    </script>
+    <canvas id="paintArea"></canvas>
+
+
+</body>
+</html>

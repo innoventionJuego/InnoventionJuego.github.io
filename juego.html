@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Burbujas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Enlace con el archivo CSS -->
+    <link rel="stylesheet" href="juego.css">
+</head>
+
+<body>
+
+    <div class="message" id="message">¡Atrapa la letra B!</div>
+    <div class="timer" id="timer">1:40</div>
+    <div class="score" id="score">Puntos: 0</div>
+    <div class="bubbles-container" id="bubbles-container"></div>
+
+    <div class="final-screen" id="final-screen" style="display: none;">
+        <div>
+            <div class="message-final" id="final-message">¡Juego Terminado!</div>
+            <div id="final-points">Puntos: 0</div>
+            <button id="restart-btn">Volver a jugar</button>
+            <button id="exit-btn">Salir</button>
+        </div>
+    </div>
+    
+
+    <div id="inicio-cuadro" class="inicio-cuadro">
+        <p id="start-message">Comencemos a jugar</p>
+        
+        <!-- Mensaje de advertencia -->
+        <p id="warning-message" style="color: red; display: none;">¡Elige una dificultad!</p>
+        
+        <!-- Botones para seleccionar dificultad -->
+        <div class="dificultad">
+            <button id="easy-btn">Fácil</button>
+            <button id="medium-btn">Medio</button>
+            <button id="hard-btn">Difícil</button>
+        </div>
+        
+        <!-- Botón para iniciar el juego -->
+        <button id="start-btn">Iniciar el juego</button>
+    </div>
+    
+
+    <!-- Enlace con el archivo JS -->
+    <script src="juego.js"></script>
+
+</body>
+</html>
+
