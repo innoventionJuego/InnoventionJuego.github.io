@@ -1,0 +1,561 @@
+/* Estilos generales */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: url('juego.jpg.jpg') center/cover no-repeat;
+}
+
+/* Estilo para el logo */
+#logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+
+/* Títulos (principal y secundario) */
+.titulo-principal, .titulo-secundario {
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 5px; /* Ajusta el valor para mover el título más arriba */
+    font-family: 'Fredoka One', cursive;
+    padding: 15px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff4081, #ffea00, #00e676, #29b6f6, #ff9100);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5), -4px -4px 0px rgba(255, 255, 255, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Contenedor principal */
+.portada, .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: none;
+}
+
+/* Botones generales */
+button, .option-btn, .back-btn, #reset {
+    font-size: 2.6rem;
+    padding: 20px 50px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .option-btn:hover, .back-btn:hover, #reset:hover {
+    background-color: #388E3C;
+}
+
+/* Fondo blanco con borde negro solo para pintar.html */
+.pintar-page {
+    background-color: white; /* Fondo blanco */
+    background-image: none;  /* Sin imagen de fondo */
+    border: 10px solid black; /* Borde negro */
+    margin: 0;
+    padding: 20px;
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+    box-sizing: border-box; /* Incluye el borde dentro del tamaño total del contenedor */
+}
+.palabras-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.palabra {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #f0a500;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.palabra:hover {
+    background-color: #d48800;
+}
+
+
+
+
+/* Botón de cierre (X) */
+#volver {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#volver:hover {
+    background-color: #388E3C;
+}
+/* Asegura que los botones de palabras tengan el mismo estilo */
+.boton {
+    font-size: 2.6rem;
+    padding: 20px 50px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #388E3C;
+}
+
+
+/* Botón específico de inicio */
+#start {
+    font-size: 3rem;
+    padding: 25px 50px;
+    margin-top: 40px;
+}
+
+/* Botón de reinicio */
+#reset {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    background-color: #29b6f6;
+    border-radius: 10px;
+}
+
+#reset:hover {
+    background-color: #0288d1;
+}
+
+/* Vocales */
+.vocales-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: -60px;
+}
+
+.pintar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    margin-top: -50px;
+}
+/* Tamaño general de las vocales */
+.vocal, #vocalMayuscula, #vocalMinuscula {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 25rem;
+    font-weight: bold;
+    color: white;
+    margin-top: -20px; /* Ajusta este valor para mover las vocales hacia arriba */
+}
+
+
+/* Solo agrandar las vocales dentro de pintar-container */
+.pintar-container #vocalMayuscula, 
+.pintar-container #vocalMinuscula {
+    font-size: 30rem !important;
+}
+
+/* Efecto de hover */
+.vocal:hover, #vocalMayuscula:hover, #vocalMinuscula:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Borde de colores para cada vocal */
+.a { -webkit-text-stroke: 10px red; color: white; }
+.e { -webkit-text-stroke: 10px orange; color: white; }
+.i { -webkit-text-stroke: 10px blue; color: white; }
+.o { -webkit-text-stroke: 10px green; color: white; }
+.u { -webkit-text-stroke: 10px purple; color: white; }
+
+/* Estilos específicos para pintar.html */
+.pintar-fondo {
+    background-color:white!important; /* Blanco */
+}
+/* Barra de herramientas */
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Distribuir los botones de manera equitativa */
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 50px; /* Aumento de altura de la barra */
+    border-radius: 30px;
+    padding: 15px; /* Aumento del espacio interno */
+    background: rgba(11, 141, 153, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease-in-out;
+}
+
+
+/* Selector de color (círculo principal) */
+.color-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: black; /* Color inicial */
+    position: relative;
+}
+
+/* Opciones de color */
+.color-options {
+    display: none;
+    position: absolute;
+    bottom: 70px; /* Se posiciona arriba del botón */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Mostrar opciones cuando está activo */
+.color-button.active + .color-options {
+    display: flex;
+}
+
+/* Botones de color GRANDES */
+.color-option {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.color-option:hover {
+    transform: scale(1.3);
+}
+
+/* Botones de herramientas */
+button {
+    font-size: 1.5rem; /* Tamaño de la fuente */
+    padding: 20px 30px; /* Tamaño de los botones */
+    margin: 40 25px; /* Aumento de espacio entre botones */
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+/* Botón flotante */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+/* Estilos para el contador de tamaño de pincel */
+.brush-size {
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+/* Clase para eliminar el fondo pintado */
+.pintado {
+    background: none !important;
+}
+
+/* Botón específico de inicio */
+#start {
+    font-size: 3rem;
+    padding: 20px 50px;
+    margin-top: 40px;
+    background-color: #4CAF50; /* Color verde como los otros */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+/* Borde de colores para cada letra */
+.letra-A { -webkit-text-stroke: 4px red; }
+.letra-B { -webkit-text-stroke: 4px orange; }
+.letra-C { -webkit-text-stroke: 4px yellow; }
+.letra-D { -webkit-text-stroke: 4px green; }
+.letra-E { -webkit-text-stroke: 4px blue; }
+.letra-F { -webkit-text-stroke: 4px purple; }
+.letra-G { -webkit-text-stroke: 4px pink; }
+.letra-H { -webkit-text-stroke: 4px cyan; }
+.letra-I { -webkit-text-stroke: 4px brown; }
+.letra-J { -webkit-text-stroke: 4px lime; }
+.letra-K { -webkit-text-stroke: 4px teal; }
+.letra-L { -webkit-text-stroke: 4px magenta; }
+.letra-M { -webkit-text-stroke: 4px indigo; }
+.letra-N { -webkit-text-stroke: 4px gold; }
+.letra-Ñ { -webkit-text-stroke: 4px skyblue; }
+.letra-O { -webkit-text-stroke: 4px darkblue; }
+.letra-P { -webkit-text-stroke: 4px violet; }
+.letra-Q { -webkit-text-stroke: 4px coral; }
+.letra-R { -webkit-text-stroke: 4px darkred; }
+.letra-S { -webkit-text-stroke: 4px skyblue; }
+.letra-T { -webkit-text-stroke: 4px olive; }
+.letra-U { -webkit-text-stroke: 4px salmon; }
+.letra-V { -webkit-text-stroke: 4px navy; }
+.letra-W { -webkit-text-stroke: 4px turquoise; }
+.letra-X { -webkit-text-stroke: 4px chocolate; }
+.letra-Y { -webkit-text-stroke: 4px tomato; }
+.letra-Z { -webkit-text-stroke: 4px black; }
+
+/* Efecto hover para que sea igual */
+#start:hover {
+    background-color: #388E3C; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Estilos para el abecedario */
+.abecedario-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+/* Estilos para las letras del abecedario */
+.letra {
+    font-family: 'Poppins', sans-serif !important; /* Cambia a la misma fuente que las vocales */
+    font-size: 6.6rem; /* Ajusta a 7rem si aún se ven pequeñas */
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.letra:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+
+
+/* Solo agrandar las vocales dentro de pintar-container */
+.pintar-container #letraMayuscula, 
+.pintar-container #letraMinuscula {
+    font-size: 40rem !important;
+}
+/* Solo agrandar las vocales dentro de pintar-container */
+.pintar-container #vocalMayuscula, 
+.pintar-container #vocalMinuscula {
+    font-size: 35rem !important;
+    margin-top: -20px; /* Ajusta este valor para mover las vocales hacia abajo */
+}
+/* Deshabilitar selección de texto para las letras */
+.letra, .vocal {
+    user-select: none;
+    -webkit-user-select: none; /* Para Safari */
+    -moz-user-select: none; /* Para Firefox */
+}
+button {
+    font-size: 20px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  /* Estilo del cursor circular */
+.cursor-circular {
+    width: 30px;  /* Tamaño inicial del círculo */
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Color del círculo */
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;  /* Asegura que el cursor no interfiera con los clics */
+    transform: translate(-50%, -50%);  /* Centra el círculo en el cursor */
+    transition: all 0.1s ease;
+}
+
+/* Estilo cuando el cursor está en modo borrador (se cambia a una cruz roja) */
+.cursor-x {
+    width: 20px;  /* Cambiar tamaño cuando es borrador */
+    height: 20px;
+    background-color: red;  /* Color rojo para borrador */
+    border-radius: 50%;  /* Mantenerlo redondo */
+}
+
+
+/* Estilo de los botones de aumentar y disminuir */
+button {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 5px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ddd;
+}
+/* Estilo para la "X" del cursor cuando se usa el borrador */
+.cursor-x {
+    position: absolute;
+    font-size: 18px;
+    color: red;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+/* Desactivar botones */
+.disabled {
+    opacity: 0.5;
+    pointer-events: none; /* Deshabilita la interacción con el botón */
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    background-color: #f0f0f0;
+    position: relative; /* Asegura que los elementos se posicionen bien */
+}
+
+.pintar-container {
+    position: absolute;
+    z-index: 5; /* Asegura que las letras estén encima del canvas */
+    text-align: center;
+    font-size: 5rem;
+    color: black;
+}
+
+.toolbar {
+    position: fixed; /* Mantiene la barra en su lugar */
+    bottom: 10px; /* La coloca en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%); /* Centra la barra horizontalmente */
+    z-index: 20; /* Asegura que esté por encima del canvas */
+}
+
+.back-btn {
+    position: fixed; /* Evita que el botón de volver sea tapado */
+    top: 10px; /* Lo deja arriba */
+    left: 10px;
+    z-index: 20; /* Encima del canvas */
+}
+
+.coloring-container {
+    position: relative;
+    display: inline-block;
+}
+
+#coloringImage {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+#paintArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+
+
+.cursor-circular {
+    position: absolute;
+    border-radius: 50%;
+    background-color: black; /* Cambiar según el color seleccionado */
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7; /* Ajusta la opacidad si es necesario */
+}
+#coloringImage.palabra-img {
+    width: 1700px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+  }
+  

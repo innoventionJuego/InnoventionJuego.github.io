@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tres Sílabas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Botón de volver al inicio arriba -->
+  <button class="back-btn" onclick="window.history.back()">Volver</button>
+
+  <div class="contenedor">
+    <h1 class="titulo-secundario">Tres Sílabas</h1>
+    <img src="innovention.jpg" alt="Logo" id="logo">
+
+    <!-- Lista de palabras como botones -->
+    <div class="palabras-container">
+      <span class="palabra" onclick="irAPintar('Tercero')">Tercero</span>
+      <span class="palabra" onclick="irAPintar('Divina')">Divina</span>
+      <span class="palabra" onclick="irAPintar('Empezar')">Empezar</span>
+      <span class="palabra" onclick="irAPintar('Camello')">Camello</span>
+      <span class="palabra" onclick="irAPintar('Camisa')">Camisa</span>
+  </div>
+  <script>
+    function irAPintar(palabra) {
+        window.location.href = `pintar.html?palabra=${palabra}`;
+    }
+</script>
+</body>
+</html>
+
