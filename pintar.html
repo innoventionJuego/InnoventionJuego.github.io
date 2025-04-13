@@ -9,64 +9,71 @@
 
 </head>
 </head>
+
+<!-- Contenedor principal -->
 <div class="coloring-container">
     <img id="coloringImage" src="" alt="Imagen para pintar">
     <canvas id="paintArea"></canvas>
 </div>  
 
-    <!-- Barra de herramientas horizontal -->
-    <div class="toolbar">
-        <!-- Selector de color -->
-        <div class="color-dropdown">
-            <button id="colorSelector" class="color-button"></button>
-            <div class="color-options">
-                <!-- Se generan dinámicamente -->
-            </div>
-        </div>
+<!-- ✅ GIF que aparece al pintar -->
+<img id="paintGif" src="clickcursor.png" 
+     style="position: fixed; display: none; width: 35px; z-index: 1001; pointer-events: none; image-rendering: pixelated;" />
 
-        <!-- Herramientas -->
-        <div class="tools">
-            <button id="erase" class="tool-btn">🩹</button>
-            <button id="brush" class="tool-btn">🖌️</button>
-            <button id="decreaseBrush" class="tool-btn">➖</button>
-            <span id="brushSizeCounter">10</span>
-            <button id="increaseBrush" class="tool-btn">➕</button>
-        </div>
-
-        <!-- Controles -->
-        <div class="controls">
-            <button id="resetCanvas" class="control-btn">🔄</button>
-            <button id="toggleToolbar" class="control-btn">🔼</button>
+<!-- Barra de herramientas horizontal -->
+<div class="toolbar">
+    <!-- Selector de color -->
+    <div class="color-dropdown">
+        <button id="colorSelector" class="color-button"></button>
+        <div class="color-options">
+            <!-- Se generan dinámicamente -->
         </div>
     </div>
 
-    <!-- Letra seleccionada -->
-    <div class="letra-container">
-        <span class="letra-seleccionada"></span>
+    <!-- Herramientas -->
+    <div class="tools">
+        <button id="erase" class="tool-btn">🩹</button>
+        <button id="brush" class="tool-btn">🖌️</button>
+        <button id="decreaseBrush" class="tool-btn">➖</button>
+        <span id="brushSizeCounter">10</span>
+        <button id="increaseBrush" class="tool-btn">➕</button>
     </div>
 
-    <!-- Botón de volver -->
-    <button id="volver" class="back-btn">X</button>
+    <!-- Controles -->
+    <div class="controls">
+        <button id="resetCanvas" class="control-btn">🔄</button>
+        <button id="toggleToolbar" class="control-btn">🔼</button>
+    </div>
+</div>
 
-    <!-- Botón flotante -->
-    <button id="showToolbar" class="floating-button" style="display: none;">🔽</button>
+<!-- Letra seleccionada -->
+<div class="letra-container">
+    <span class="letra-seleccionada"></span>
+</div>
 
-    <script src="app.js"></script>
-    <script>
-        const colorOptions = [
-            'purple', 'pink', 'black', 'blue', 'darkblue', 'yellow', 'red', 'orange',
-            'green', 'cyan', 'magenta', 'lime', 'brown', 'gray', 'gold', 'navy', 'teal'
-        ];
+<!-- Botón de volver -->
+<button id="volver" class="back-btn">X</button>
 
-        const colorContainer = document.querySelector('.color-options');
+<!-- Botón flotante -->
+<button id="showToolbar" class="floating-button" style="display: none;">🔽</button>
 
-        colorOptions.forEach(color => {
-            const button = document.createElement('button');
-            button.classList.add('color-option');
-            button.style.backgroundColor = color;
-            button.dataset.color = color;
-            colorContainer.appendChild(button);
-        });
-    </script>
+<script src="app.js"></script>
+<script>
+    const colorOptions = [
+        'purple', 'pink', 'black', 'blue', 'darkblue', 'yellow', 'red', 'orange',
+        'green', 'cyan', 'magenta', 'lime', 'brown', 'gray', 'gold', 'navy', 'teal'
+    ];
+
+    const colorContainer = document.querySelector('.color-options');
+
+    colorOptions.forEach(color => {
+        const button = document.createElement('button');
+        button.classList.add('color-option');
+        button.style.backgroundColor = color;
+        button.dataset.color = color;
+        colorContainer.appendChild(button);
+    });
+</script>
 </body>
 </html>
+
