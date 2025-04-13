@@ -452,11 +452,13 @@ button {
 
 /* Estilo cuando el cursor está en modo borrador (se cambia a una cruz roja) */
 .cursor-x {
-    width: 20px;  /* Cambiar tamaño cuando es borrador */
+    width: 20px;  /* Tamaño del recuadro */
     height: 20px;
-    background-color: red;  /* Color rojo para borrador */
-    border-radius: 50%;  /* Mantenerlo redondo */
+    background-color: transparent;  /* Fondo transparente */
+    border: 2px solid gray;  /* Borde gris */
+    border-radius: 4px;  /* Esquinas redondeadas para hacerlo menos rígido */
 }
+
 
 
 /* Estilo de los botones de aumentar y disminuir */
@@ -543,19 +545,47 @@ body {
 }
 
 
-
 .cursor-circular {
-    position: absolute;
+    position: fixed;
+    border: 2px solid gray; /* Color del borde */
     border-radius: 50%;
-    background-color: black; /* Cambiar según el color seleccionado */
+    background: transparent; /* Sin relleno */
     pointer-events: none;
-    z-index: 9999;
-    opacity: 0.7; /* Ajusta la opacidad si es necesario */
-}
+    z-index: 1000;
+    mix-blend-mode: difference; /* Opcional para que resalte sobre colores claros u oscuros */
+    width: 40px; /* Ajusta el tamaño del círculo */
+    height: 40px; /* Ajusta el tamaño del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cursor-circular::before {
+    content: "+"; /* Contenido del signo */
+    font-size: 20px; /* Tamaño del signo + */
+    color: gray; /* Color del signo */
+    font-weight: bold; /* Opcional: para hacerlo más visible */
+    position: relative;
+    top: -1px; /* Ajuste fino para centrar verticalmente */
+  }
+  
+  
+
 #coloringImage.palabra-img {
     width: 1700px;
     height: auto;
     margin: 20px auto;
     display: block;
   }
-  
+  .tool-btn.marked::after {
+    content: "❌";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5em;
+    color: red;
+  }
+  .tool-btn {
+    position: relative;
+  }
+ 
