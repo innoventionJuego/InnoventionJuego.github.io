@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isErasing = false;
     let cursor = null;
 
+    
     // === PARAMETROS DE URL ===
     const params = new URLSearchParams(window.location.search);
     const vocal = params.get("vocal");
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                         const tolerance = 90; // antes tenías 20
 
-                        const shrinkFactor = 0.5;
+                        const shrinkFactor = 0.3;
                     
                         let canDraw = true;
                     
@@ -102,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (!canDraw) return;
                     
                         if (isErasing) {
-                            // Borrador que elimina solo lo pintado en el canvas (sin afectar imagen debajo)
+                            // Borrador que dibuja un cuadrado transparente
                             ctx.globalCompositeOperation = "destination-out";
                             ctx.beginPath();
-                            ctx.arc(x, y, radius, 0, Math.PI * 2);
+                            ctx.rect(x - radius, y - radius, brushSize, brushSize); // Dibuja un cuadrado
                             ctx.fill();
                           } else {
                             // Pincel normal
@@ -176,8 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
         function moveCursor(e) {
             if (cursor) {
-                cursor.style.left = `${e.pageX - brushSize / 2}px`;
-                cursor.style.top = `${e.pageY - brushSize / 2}px`;
+                cursor.style.left = `${e.pageX - brushSize /9}px`;
+                cursor.style.top = `${e.pageY - brushSize / 9}px`;
             }
         }
 
@@ -194,12 +195,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("brush")?.addEventListener("click", () => {
             isErasing = false;
             updateCursor();
+            document.getElementById("brush").classList.remove("marked");
         });
-
+        
         document.getElementById("erase")?.addEventListener("click", () => {
             isErasing = true;
             updateCursor();
+            document.getElementById("brush").classList.add("marked");
         });
+        
 
         document.getElementById("increaseBrush")?.addEventListener("click", () => {
             brushSize = Math.min(40, brushSize + 2);
@@ -306,6 +310,40 @@ document.addEventListener("DOMContentLoaded", function () {
             showToolbarBtn.style.display = "none";
         });
     }
+    // Obtener el GIF
+const paintGif = document.getElementById('paintGif');
+
+// Mostrar el GIF cuando se presiona el mouse
+canvas.addEventListener('mousedown', function (e) {
+    if (paintGif) {
+        paintGif.style.display = 'block';
+        paintGif.style.left = `${e.clientX + 10}px`;
+        paintGif.style.top = `${e.clientY + 10}px`;
+    }
+});
+
+// Mover el GIF con el cursor mientras se pinta
+canvas.addEventListener('mousemove', function (e) {
+    if (paintGif && paintGif.style.display === 'block') {
+        paintGif.style.left = `${e.clientX + 10}px`;
+        paintGif.style.top = `${e.clientY + 10}px`;
+    }
+});
+
+// Ocultar el GIF al soltar el mouse
+canvas.addEventListener('mouseup', function () {
+    if (paintGif) {
+        paintGif.style.display = 'none';
+    }
+});
+
+// También ocultarlo si el mouse sale del canvas
+canvas.addEventListener('mouseleave', function () {
+    if (paintGif) {
+        paintGif.style.display = 'none';
+    }
+});
+
 
     // RESET CANVAS (colores de vocales)
     resetCanvasBtn?.addEventListener("click", () => {
