@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const letras = document.querySelectorAll(".letra");
     const showToolbarBtn = document.getElementById("showToolbar");
     
-
     let selectedColor = "black";
     let brushSize = 10;
     let isErasing = false;
@@ -195,14 +194,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("brush")?.addEventListener("click", () => {
             isErasing = false;
             updateCursor();
-            document.getElementById("brush").classList.remove("marked");
+            document.getElementById("brush").classList.add("marked");
+            document.getElementById("erase").classList.remove("marked");
         });
         
         document.getElementById("erase")?.addEventListener("click", () => {
             isErasing = true;
             updateCursor();
-            document.getElementById("brush").classList.add("marked");
+            document.getElementById("erase").classList.add("marked");
+            document.getElementById("brush").classList.remove("marked");
         });
+        
         
 
         document.getElementById("increaseBrush")?.addEventListener("click", () => {
@@ -310,39 +312,6 @@ document.addEventListener("DOMContentLoaded", function () {
             showToolbarBtn.style.display = "none";
         });
     }
-    // Obtener el GIF
-const paintGif = document.getElementById('paintGif');
-
-// Mostrar el GIF cuando se presiona el mouse
-canvas.addEventListener('mousedown', function (e) {
-    if (paintGif) {
-        paintGif.style.display = 'block';
-        paintGif.style.left = `${e.clientX + 10}px`;
-        paintGif.style.top = `${e.clientY + 10}px`;
-    }
-});
-
-// Mover el GIF con el cursor mientras se pinta
-canvas.addEventListener('mousemove', function (e) {
-    if (paintGif && paintGif.style.display === 'block') {
-        paintGif.style.left = `${e.clientX + 10}px`;
-        paintGif.style.top = `${e.clientY + 10}px`;
-    }
-});
-
-// Ocultar el GIF al soltar el mouse
-canvas.addEventListener('mouseup', function () {
-    if (paintGif) {
-        paintGif.style.display = 'none';
-    }
-});
-
-// También ocultarlo si el mouse sale del canvas
-canvas.addEventListener('mouseleave', function () {
-    if (paintGif) {
-        paintGif.style.display = 'none';
-    }
-});
 
 
     // RESET CANVAS (colores de vocales)
@@ -352,4 +321,8 @@ canvas.addEventListener('mouseleave', function () {
             vocal.style.textShadow = "none";
         });
     });
+});
+document.getElementById('start').addEventListener('click', function() {
+    document.getElementById('instrucciones').style.display = 'none';
+    document.querySelector('.seleccion').style.display = 'block';
 });
